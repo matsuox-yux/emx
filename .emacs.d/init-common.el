@@ -14,6 +14,7 @@
 
 (prefer-coding-system 'utf-8-unix)
 
+(setq delete-selection-mode nil)
 
 (require 'server)
 (unless (eq (server-running-p) 't)
@@ -134,6 +135,14 @@
 
 ;(define-key global-map "\C-c@" 'insert-mv)
 
+; 日本語入力を使わない
+(global-unset-key (kbd "C-\\"))
+(setq default-input-method nil)
+
+; ミニバッファ = 常に英語
+(add-hook 'minibuffer-setup-hook
+          (lambda ()
+            (deactivate-input-method)))
 ;; 行番号表示
 (global-set-key "\M-n" 'global-display-line-numbers-mode)
 
