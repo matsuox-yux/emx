@@ -14,8 +14,6 @@
 
 (prefer-coding-system 'utf-8-unix)
 
-(setq delete-selection-mode nil)
-
 (require 'server)
 (unless (eq (server-running-p) 't)
   (server-start))
@@ -76,7 +74,7 @@
 (setq search-whitespace-regexp nil)
 
 ; ;; 選択領域を削除キーで一括削除 kill-ringに入らない
-(delete-selection-mode t)
+;(delete-selection-mode t)
 
 ; 行頭でC-kしたときには改行文字も削除する
 ;(setq kill-whole-line t)
